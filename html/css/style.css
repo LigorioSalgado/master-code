@@ -7,13 +7,22 @@ header { /* va a buscar la etiqueta header en html */
     width: 100%;
     background-color: #B27A6E;
     /* padding: 10px ;  /* agrega padding a los cuatro lados*/
-    /* padding: 15px 10px ; /* Padding de 15px arriba y abajo y 10 px ala derecha he izquierda */
+    padding: 15px 10px ; /* Padding de 15px arriba y abajo y 10 px ala derecha he izquierda */
     /*   padding: 10px 15px 18px 25px; /* Agrega padding conforme a las dir de las manecillas del reloj*/
        /* padding-left: ;
        padding-right: ;
        padding-top: ;
        padding-bottom: ; */
+    margin: 0px;
 }
+
+nav{
+    display: inline-block;
+    width: 85%;
+    text-align: right;
+}
+
+
 
 body{
     background-color: bisque;
@@ -24,6 +33,9 @@ body{
     font-size: 17px; /* Tamaño de la fuente */
     color: bisque; /* color del texto */
     text-decoration: none; /* quita decoracion de texto como  underline*/
+    /*padding: 10px; */
+    margin: 10px;
+    /*border: 1px solid black /*Esto define un borde */
 }
 
 #logo{ /* selector por id */
