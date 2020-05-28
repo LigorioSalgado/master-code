@@ -1,0 +1,34 @@
+
+/* aca va un comentario */
+
+/* css se basa a partir de selectores */
+/* primer selector es por etiqueta */
+header { /* va a buscar la etiqueta header en html */
+    width: 100%;
+    background-color: #B27A6E;
+    /* padding: 10px ;  /* agrega padding a los cuatro lados*/
+    /* padding: 15px 10px ; /* Padding de 15px arriba y abajo y 10 px ala derecha he izquierda */
+    /*   padding: 10px 15px 18px 25px; /* Agrega padding conforme a las dir de las manecillas del reloj*/
+       /* padding-left: ;
+       padding-right: ;
+       padding-top: ;
+       padding-bottom: ; */
+}
+
+body{
+    background-color: bisque;
+    margin: 0px;
+}
+
+.links{ /* Selector por clase */
+    font-size: 17px; /* Tamaño de la fuente */
+    color: bisque; /* color del texto */
+    text-decoration: none; /* quita decoracion de texto como  underline*/
+}
+
+#logo{ /* selector por id */
+    font-size: 30px;
+    color: bisque;
+    text-decoration: none;
+    font-weight: bold; /* el grueso de la fuente */
+}
