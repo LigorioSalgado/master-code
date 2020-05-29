@@ -1,0 +1,163 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+header{
+    /*text-align: right;*/
+    text-align: right;
+    padding: 10px 25px;
+}
+
+main{
+    padding: 100px;
+    text-align: center;
+    height: 90%;
+}
+
+#logo{
+    margin-bottom: 20px;
+}
+
+#search{
+    margin-bottom: 20px;
+}
+
+#search input{
+    width: 500px;
+    border-radius: 25px;
+    padding: 15px 38px;/*En todos los lados*/
+    font-size: 16px;
+    border: 1px solid #eee;
+    background: url('mic.png') no-repeat scroll 550px 9px;
+    background-size: 18px;
+}
+
+#search input:focus{
+    outline: none;
+    box-shadow: 0 1px 6px 0px rgba(32,33,36,0.28);
+
+}
+
+#search input:hover{
+    box-shadow: 0 1px 6px 0px rgba(32,33,36,0.28);
+}
+
+#apps{
+    width: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    fill:red;
+
+}
+
+#profile{
+    width: 40px;
+    border-radius: 50px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.link-header:link{ /* pseudoclases */
+    text-decoration: none;
+}
+
+.link-header:hover{
+    text-decoration: underline;
+}
+
+.link-header{
+    color: black;
+    margin-left: 10px;
+    vertical-align: middle;
+    /*margin: 0px 10px;*/
+    /*margin: 0px 0px 0px 10px; */
+}
+
+.button-search{
+    font-size: 16px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    border:white 1px solid;
+    color: rgba(0, 0, 0, 0.6);
+    /*box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);  */
+    /*-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);*/
+}
+
+.button-search:hover{
+    border: #cccccc  1px solid;
+    color: black;
+    cursor: pointer;
+}
+
+#buttons p {
+    margin-top: 30px;
+}
+
+#buttons p a{
+    color: blue;
+    text-decoration: none;
+}
+
+#buttons p a:hover{
+    text-decoration: underline;
+}
+
+footer{
+    position:absolute;
+    bottom: 0px;
+    background: #f2f2f2;
+    width:100%;
+   
+    font-size: 16px;
+}
+
+#country, #footer-links{
+    padding: 15px;
+}
+
+#country {
+    padding-bottom: 15px;
+    border: #c6c6c6 1px solid;
+}
+
+
+#country p{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.extra-links{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.6);
+    margin-right: 15px;
+}
+
+.extra-links:hover{
+    text-decoration: underline;
+}
+
+#footer-links{
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    position: relative;
+}
+
+label::before{
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 21px;
+    background-image: url(lupa.svg);
+    height: 21px;
+    fill:#cecece;
+}
+
