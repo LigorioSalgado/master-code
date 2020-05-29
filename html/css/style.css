@@ -16,6 +16,7 @@ header { /* va a buscar la etiqueta header en html */
     margin: 0px;
 }
 
+
 nav{
     display: inline-block;
     width: 85%;
@@ -34,6 +35,12 @@ body{
     /*padding: 10px; */
     margin: 10px;
     /*border: 1px solid black /*Esto define un borde */
+}
+
+.links:hover{ /* Esto se va a ejecutar cuando haga hover sobre los links */
+    color: blue;
+    text-decoration: underline;
+    border: 1px solid blue;
 }
 
 #logo{ /* selector por id */
