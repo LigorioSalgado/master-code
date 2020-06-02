@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi formulario</title>
+</head>
+<body>
+    
+    <form>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" placeholder="Nombre" id="nombre">
+
+        <label for="edad">Edad</label>
+        <input type="number" placeholder="Edad" id="edad">
+
+        <label for="password">Password</label>
+        <input type="password" id="password">
+
+        <label for="live">Vivo</label>
+        <input type="checkbox" id="live">
+
+        <label for="date">Fecha</label>
+        <input type="date" id="date">
+
+        <select aria-label="Selector de materias">
+            <option value="0" selected disabled>Selecciona tu materia</option>
+            <option value="1" aria-label="fisica">Fisica</option>
+            <option value="2" aria-label="matematicas">Mates</option>
+            <option value="3" aria-label="biologia">Biología</option>
+            <option value="4" aria-label="inmunologia">Inmunologia</option>
+        </select>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+</body>
+</html>
