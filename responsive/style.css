@@ -157,6 +157,10 @@ header nav a:first-child {
 
 }
 
+#formulario form input:focus, #formulario form textarea:focus {
+    outline: none;
+}
+
 /*Media Query Determina el breacpoint de ajuste segun el ancho o alto de la pantalla */
 @media screen and (max-width:600px){
 
