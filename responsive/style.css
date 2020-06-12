@@ -108,10 +108,10 @@ header nav a:first-child {
 
 #formulario{
     background-color: #A9C7E1;
-    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding:90px;
 }
 
 #formulario h1{
@@ -142,6 +142,21 @@ header nav a:first-child {
     font-weight: bold;
 }
 
+#formulario form button {
+    width: 302px;
+    background-color: #1A264E;
+    border: 1px solid #1A264E;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 33px;
+    color:#FFFFFF;
+    align-self: center;
+    padding: 25px 10px;
+
+}
+
 /*Media Query Determina el breacpoint de ajuste segun el ancho o alto de la pantalla */
 @media screen and (max-width:600px){
 
@@ -167,6 +182,14 @@ header nav a:first-child {
     .card{
        width:100%
    } 
+
+   #formulario{
+       flex-direction: column;
+   }
+
+   #formulario h1{
+       margin-bottom: 90px;
+   }
 
    /* #beneficios{
        flex-direction: column;
