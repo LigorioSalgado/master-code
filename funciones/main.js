@@ -1,5 +1,3 @@
-
-
 // Declaración de mi función
 // --> function es una palabra reservada
 // --> El nombre de mi funcion ()
