@@ -33,7 +33,7 @@ console.log('La suma total de los números dl 1 al 100 es: ' + acumlulador);
 console.log('Terminó');
 
 
-
+// FIBONACCI
 var secuencia = "";
 for(var i = 0; i<100; i++){
     var a = 0, b = 1, f = 1;
