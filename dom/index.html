@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de contactos</title>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <main>
+            <section class="form">
+                    <div class="inputs">
+                        <label for="">Nombre:</label>
+                        <input type="text" id="nombre">
+                    </div>
+                    <div class="inputs">
+                        <label for="">Email:</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div class="inputs">
+                        <label for="">Telefono:</label>
+                        <input type="text" id="tel">
+                    </div>
+                    <div class="inputs">
+                        <label for="">Tipo de contacto</label>
+                        <select name="" id="tipo">
+                            <option value="0">------Selecione una Opción-----</option>
+                            <option value="1">Trabajo</option>
+                            <option value="2">Personal</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        <button id="guardar">Guardar</button>
+                    </div>
+
+            </section>
+            <section class="table">
+                <div class="row head">
+                    <div class="column">Nombre</div>
+                    <div class="column">Email</div>
+                    <div class="column">Telefono</div>
+                    <div class="column">Tipo</div>
+                </div>
+                <div class="row ">
+                    <div class="column">Edwin Salgado</div>
+                    <div class="column">edwin@mail.com</div>
+                    <div class="column">5516161616</div>
+                    <div class="column">Personal</div>
+                </div>
+
+            </section>
+
+        </main>
+    <script src="./main.js"></script>
+
+    </body>
+
+</html>
