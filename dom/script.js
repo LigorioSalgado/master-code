@@ -16,8 +16,9 @@
     console.log("Numero de frutas: "+ listaFrutas.length) //length me dice el tamño de mi lista
     console.log("Elegi la fruta: ", listaFrutas[1] )//vas a buscar la fruta en la posicion 1
     console.log("Esta es ", listaFrutas[4])
+    console.log("Antes de Guayaba ",listaFrutas)
     listaFrutas.push('Guayaba') //Va agregagr una nueva fruta al final de la lista
-    console.log("Nueva Lista",listaFrutas)
+    console.log("Lista modificada ",listaFrutas)
     listaFrutas[1] = "Toronja"
     console.log(listaFrutas)
     listaFrutas.splice(0,0,"Higo") // 1 -->  donde empiezo, 0 --> cuantos borro, "higo" ---> que meto al arreglo
@@ -71,6 +72,50 @@
 
     console.log("Reproduciendo: "+playlist[0].titulo)
 
+    var contacto1 = {
+        nombre:"Raul Amador",
+        email:"dagorik@dago.com",
+        telefono:"55182929",
+        tipo:2
+    }
 
+    var contacto2 = {
+        nombre:"Mario Rodriguez",
+        email:"mario@gmail.com",
+        telefono:"5518239299",
+        tipo:1
+    }
+
+    var contacto3 = {
+        nombre:"Melania Tapia",
+        email: "melania@gmail.com",
+        telefono:"5518292920",
+        tipo:1
+    }
+
+    var listaDeContactos = [contacto1,contacto2,contacto3]
+
+    var table = document.querySelector('.table');
+
+    function agregaNodo(contacto){
+        console.log("Contacto actual: ",contacto)
+        var row = document.createElement('div');
+        if (contacto.tipo === 1){
+            var tipo = "Trabajo"
+        }else{
+            var tipo = "Personal"
+        }
+        row.classList.add('row')
+        row.innerHTML = '<div class="column">'+ contacto.nombre +'</div>'
+        + '<div class="column">'+ contacto.email +'</div>'
+        + '<div class="column">'+ contacto.telefono +'</div>'
+        + '<div class="column">'+ tipo +'</div>'
+        table.appendChild(row)
+    }
+    //for
+    for(var i=0; i < listaDeContactos.length; i++ ){
+        console.log('------Posicion: '+i)
+        agregaNodo(listaDeContactos[i])
+    }
 
 })()//IIFE
