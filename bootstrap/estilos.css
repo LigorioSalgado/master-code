@@ -4,5 +4,25 @@
 }
 
 .fix-width-card{
-    width: 25rem;
+    width: 25rem;    
+}
+
+.fix-tamanio {
+    height: 5rem;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.verde {
+    background-color: green;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.negro {
+    background-color: black;
 }
