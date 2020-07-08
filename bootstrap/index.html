@@ -73,18 +73,24 @@
     <div class="container mt-5">
         <h1 class="mb-5">Sistema de 12 columnas</h1>
 
-        <div class="row">
-            <div class="rojo fix-tamanio col-1"></div>
-            <div class="verde fix-tamanio col-3"></div>
-            <div class="amarillo fix-tamanio col-5"></div>
-            <div class="negro fix-tamanio col-3"></div>
+        <!-- Queremos que se vea en xl y lg y que se oculte en md y sm -->
+        <div class="d-none d-lg-block d-xl-block d-md-none d-sm-none">  <!-- Este div maneja el responsive -->
+            <div class="row"> 
+                <div class="rojo fix-tamanio col-1"></div>
+                <div class="verde fix-tamanio col-3"></div>
+                <div class="amarillo fix-tamanio col-5"></div>
+                <div class="negro fix-tamanio col-3"></div>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="negro fix-tamanio col-4"></div>
-            <div class="rojo fix-tamanio col-3"></div>
-            <div class="verde fix-tamanio col-2"></div>
-            <div class="amarillo fix-tamanio col-3"></div>
+        <!-- Queremos que se vea en ms y sm y que se oculte en xl y lg -->
+        <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
+            <div class="row">
+                <div class="negro fix-tamanio col-md-4"></div>
+                <div class="rojo fix-tamanio col-md-3"></div>
+                <div class="verde fix-tamanio col-md-2"></div>
+                <div class="amarillo fix-tamanio col-md-3"></div>
+            </div>
         </div>
     </div>
 
