@@ -1,0 +1,1 @@
+const Mascota = require('Mascota.js') // require palabra reservada de node
