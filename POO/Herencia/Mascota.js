@@ -6,6 +6,8 @@ class Mascota {
         this.edad = edad 
         this.color = color
         this.raza =  raza
+        this.patas = 4
+
     }
 
     comer(comida){

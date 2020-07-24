@@ -6,7 +6,6 @@ class Perro extends Mascota{
     constructor(nombre,edad,color,raza,tipo_orejas){
         super(nombre,edad,color,raza)//Vaz a ejecutar el cosntructor del padre
         this.tipo_orejas = tipo_orejas; 
-
     }
 
     ladra(){
