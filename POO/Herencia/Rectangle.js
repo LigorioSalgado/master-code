@@ -1,18 +1,13 @@
-class Rectangle {
+const Cuadrilatero = require('./Cuadrilatero')
+
+class Rectangle  extends Cuadrilatero{
 
     constructor(width, heigth){
-        this.width = width
-        this.heigth = heigth
-    }
-
-    calculateArea(){
-        this.area = this.width * this.heigth
-        return `El area del  rectangulo es: ${this.area}`
+       super(width,heigth)
     }
 
 }
 
-const rec1 = new Rectangle(10,12)
-console.log(rec1.calculateArea())
+const rec1 = new Rectangle(9,12)
+console.log(`El area del rectangulo es ${rec1.calculateArea()}`)
 
-module.exports = Rectangle;
