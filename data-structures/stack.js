@@ -40,5 +40,26 @@ if(word == revert_word){
     console.log(`${word} no es un palindromo`)
 }
 
+console.log(typeof(myPila))
+
+class Stack{
+
+    //va a tener dos metodos push y pop
+    //peek ---> me dice el ultimo elemento en la pila
+    //length ----> me dice el tamaño de la pila
+    constructor(){
+        this.count = 0 // aqui voy a guardar cuantos elementos tengo en la pilla
+        this.storage = {} // aqui voy a guardar los elementos de mi pila
+    }
+
+    push(nuevoElemento){ //Mete cosas nuevas a  mi pila
+        //{0:"x",1:"y",2:"z"}
+        this.storage[this.count] = nuevoElemento; //agrega un elemento a una pocision
+        this.count++;
+    }
+
+}
+
+
 
 
