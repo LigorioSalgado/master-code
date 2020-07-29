@@ -47,6 +47,47 @@ console.log("Atendiendo al cliente")
 filaDeTortillas.dequeue()
 console.log("El primero en la fila", filaDeTortillas.front())
 
+class Song{
+    constructor(title, duration){
+        this.title = title
+        this.duration = duration
+    }
+
+    play(){
+        return `reproducioendo ${this.title}`
+    }
+
+}
+
+const myPlayList = new Queue() //Esto es la playlist
+const song1 = new Song("El triste", "2:30")
+const song2 = new Song("La chona", "3:30")
+const song3 = new Song("Cumbion chido", "2:30")
+
+myPlayList.enqueue(song1)
+myPlayList.enqueue(song2)
+myPlayList.enqueue(song3)
+
+setInterval(function(){ //va a ejecutar esto cada tres segundos
+    if(!myPlayList.isEmpty()){
+        console.log(myPlayList.dequeue().play())
+    }else{
+        console.log('se acabo la fiesta')
+    }
+}, 3000) //3000 milisegundos
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
