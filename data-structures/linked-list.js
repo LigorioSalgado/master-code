@@ -6,7 +6,7 @@ class Node { // este es mi nodo
 
 }
 
-class LinkeList{ // Esta es mi lista en lazada
+class LinkedList{ // Esta es mi lista en lazada
     
     constructor(){
         this.head = null; //Esto significa que no hay nada en la lista
@@ -36,8 +36,49 @@ class LinkeList{ // Esta es mi lista en lazada
         }
 
         this.length++; 
+        //es para saber cuantos elementos tengo en mi lista
         //aumento en uno el numero de elementos dentro de mi lista
 
     }
 
+    remove(datoBorrar){ 
+        //tengo que especificar que dato va a ser borrado
+        var currentNode = this.head;
+        var previousNode = null; //aqui voy a almacenar el nodo con el que tengo que reconectar
+        if(currentNode.dato === datoBorrar){ //esto va a borrar el head
+            this.head = currentNode.next //reasigno la cabeza de mi
+        }else{
+            while(currentNode.dato !== datoBorrar){
+                previousNode = currentNode; //el current se convierte en el privousnode
+                currentNode = currentNode.next //Pasa al siguiente nodo
+            }
+            previousNode.next = currentNode.next
+        }
+        this.length--;
+    }
 }
+
+const myList = new LinkedList();
+
+myList.add(22);
+
+
+console.log(myList)
+
+myList.add(33);
+
+console.log(myList)
+
+myList.add(44);
+
+console.log(myList)
+
+myList.add(55);
+
+console.log(JSON.stringify(myList)) //json.stringify convierte objeto a string
+
+myList.remove(44)
+
+
+console.log("Aca borre un elemento", JSON.stringify(myList))
+
