@@ -11,8 +11,8 @@ class Node {
 }
 
 class Tree {
-  //Tiene el metodo agregar nodo
-  //tiene el metodo verificar si existe el nodo
+  //Tiene el método agregar nodo
+  //tiene el método verificar si existe el nodo
 
   constructor() {
     this.root = null;
