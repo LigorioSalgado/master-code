@@ -68,26 +68,59 @@ class Graph {
 
 const mygrafo = new Graph();
 
-//agregagndo nodos. Solamente son las bolitas
-mygrafo.addNode(0);
-mygrafo.addNode(1);
-mygrafo.addNode(2);
-mygrafo.addNode(3);
-mygrafo.addNode(4);
+//agregagndo nodos solamente son las bolitas
+mygrafo.addNode(0)
+mygrafo.addNode(1)
+mygrafo.addNode(2)
+mygrafo.addNode(3)
+mygrafo.addNode(4)
 
-//agregando edges, es decir, las relaciones
-mygrafo.addEdge(0, 1);
-mygrafo.addEdge(0, 2);
-mygrafo.addEdge(1, 4);
-mygrafo.addEdge(1, 2);
-mygrafo.addEdge(2, 3);
-mygrafo.addEdge(3, 4);
+//agregando edges ---relaciones
+mygrafo.addEdge(0,1)
+mygrafo.addEdge(0,2)
+mygrafo.addEdge(1,4)
+mygrafo.addEdge(1,2)
+mygrafo.addEdge(2,3)
+mygrafo.addEdge(3,4)
 
-mygrafo.print();
+mygrafo.print()
 
-function adjacencyMatrix(mygrafo) {
-  //va a ser código bien chido
+function adjacencyMatrix(mygrafo){
+    //va a ser codigo bien chido
+    //mi matriz empieza vacia
+    const matrix  = []
+    //primero necesito saber cuantos nodos tengo y apartir de eso puedo agrgear nuevos arreglos
+    for(var i = 0; i < mygrafo.nodes.length; i++){
+        var row = []
+        for(var j=0; j < mygrafo.nodes.length; j++){
+            //relleno la matriz de puros ceros solo necesito las pocisiones
+            //despues los cambiare por los 1 correspondientes
+            row.push(0)
+        }
+       matrix.push(row)
+    }
+    
+    //ahora tengo que buscar las relaciones  por cada nodo
+    for(var i = 0; i < mygrafo.nodes.length; i++){
+        //vamos a ir buscando nodo por nodo donde  y vemos que edges tiene
+        const nodo = mygrafo.nodes[i]
+        for(var j = 0; j < mygrafo.edges.length; j++){ //busco en las aristas
+            if( mygrafo.edges[j][0].value === nodo.value){
+                //encontre un una arista que concatena ese mi nodo actual con otro nodo
+               const row = matrix[i] // obtengo mi fila
+               const nodoConected = mygrafo.edges[j][1]// este es el nodo con el que estoy conectado
+               row[nodoConected.value] = 1; //encontramos una relacion ahora estamos seguros de agregar el 1
+               //ocupamos el value por que nos indica en que poscicion debo agregar el 1
+            }
+
+        }
+
+    }
+
+    return matrix //regreso ya la matriz completa
 }
+
+console.log("matriz de adjacencias",adjacencyMatrix(mygrafo))
 
 //resultado
 /* 
