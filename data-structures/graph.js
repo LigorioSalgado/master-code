@@ -86,7 +86,40 @@ mygrafo.print()
 
 function adjacencyMatrix(mygrafo){
     //va a ser codigo bien chido
+    //mi matriz empieza vacia
+    const matrix  = []
+    //primero necesito saber cuantos nodos tengo y apartir de eso puedo agrgear nuevos arreglos
+    for(var i = 0; i < mygrafo.nodes.length; i++){
+        var row = []
+        for(var j=0; j < mygrafo.nodes.length; j++){
+            //relleno la matriz de puros ceros solo necesito las pocisiones
+            //despues los cambiare por los 1 correspondientes
+            row.push(0)
+        }
+       matrix.push(row)
+    }
+    
+    //ahora tengo que buscar las relaciones  por cada nodo
+    for(var i = 0; i < mygrafo.nodes.length; i++){
+        //vamos a ir buscando nodo por nodo donde  y vemos que edges tiene
+        const nodo = mygrafo.nodes[i]
+        for(var j = 0; j < mygrafo.edges.length; j++){ //busco en las aristas
+            if( mygrafo.edges[j][0].value === nodo.value){
+                //encontre un una arista que concatena ese mi nodo actual con otro nodo
+               const row = matrix[i] // obtengo mi fila
+               const nodoConected = mygrafo.edges[j][1]// este es el nodo con el que estoy conectado
+               row[nodoConected.value] = 1; //encontramos una relacion ahora estamos seguros de agregar el 1
+               //ocupamos el value por que nos indica en que poscicion debo agregar el 1
+            }
+
+        }
+
+    }
+
+    return matrix //regreso ya la matriz completa
 }
+
+console.log("matriz de adjacencias",adjacencyMatrix(mygrafo))
 
 //resultado
 /* 
