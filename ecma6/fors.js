@@ -29,7 +29,13 @@ const miArray = ['🚗','🍤', '🍫', '☕️']
 //     console.log(i);
 // }
 
-const miObj = { name: 'Carro', emoji: '🚗'}
-for (let key in miObj) {
-    console.log(key);
+// const miObj = { name: 'Carro', emoji: '🚗'}
+// for (let key in miObj) {
+//     console.log(key);
+// }
+
+const array = [{ name: 'Carro', emoji: '🚗'}, { name: 'Carro 2', emoji: '🚗 2'}]
+
+for (let obj of array) {
+    console.log(obj);
 }
