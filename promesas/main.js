@@ -30,7 +30,8 @@ miPrimeraPromesaEsMayorQueUno(0)
         // palabra --> parametro
         // palabra: Es el parametro que se le pasa a resolve
         console.log('THEN: '+ palabra);
-    }).catch((error) => {
+    })
+    .catch((error) => {
         // error --> parametro
         // error: Es el parametro que se le pasa a reject
         console.log('CATCH: ' + error);
