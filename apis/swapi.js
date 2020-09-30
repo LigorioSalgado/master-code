@@ -11,6 +11,7 @@ function getPeopleById(id) {
             console.log(bodyEnFormatoJSON.name);
             console.log(bodyEnFormatoJSON.films[0]);
 
+            // Segunda petición
             request.get(bodyEnFormatoJSON.films[0], (errorDos, responseDos, bodyDos) => {
                const bodyMovieEnFormatoJSon = JSON.parse(bodyDos) 
                console.log(bodyMovieEnFormatoJSon.title);

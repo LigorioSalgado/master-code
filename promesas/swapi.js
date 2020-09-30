@@ -53,7 +53,7 @@ getPeopleById(1)
     })
 
 
-getPeopleById(1)
-    .then((people) => getMovieByUrl(people.films[0]))
-    .then((movie) => console.log(movie.title))
-    .catch((err) => console.log(err))
+// getPeopleById(1)
+//     .then((people) => getMovieByUrl(people.films[0]))
+//     .then((movie) => console.log(movie.title))
+//     .catch((err) => console.log(err))
