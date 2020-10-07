@@ -1,4 +1,5 @@
 import greeting from './greeting'; //ecmascript con babel
+import './styles/style.scss';
 // Es similar a 
 // const greeting =  require('./greeting); esto es commonJs
 

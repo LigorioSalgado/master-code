@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const MiniCssExtractPlugin =  require('mini-css-extract-plugin');
 module.exports = {
     module:{
         rules:[ //Aqui voy a caragar todos los loader que necesito para que webpack trabaje como quiera
@@ -23,6 +23,14 @@ module.exports = {
 
             },
             {
+                test: /\.scss$/,
+                use: [ //Los loader el orden si importa
+                    "style-loader", // Procesa estilos en line
+                    "css-loader", //Procesa estilos en archivos css
+                    "sass-loader" // procesa estilos en archivos scss (sass)
+                ]
+            },
+            {
                 test:  /\.(png|jpg|svg|gif|jpeg)$/,
                 use:[
                     "file-loader"
@@ -41,7 +49,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:"./src/index.html", //Que archivo de html va a ser el base para mi proyecto
             filename:"./index.html"// Que unico archivo de html se va a generar
-        })
+        }),
+        new MiniCssExtractPlugin({ //es opcional
+            
+            filename: "[name].css",
+            chunkFilename: "[id].css" //solo es el caso si hay mucho css hay muchas lineas de css
+
+        }),
+
     ]
 
 }

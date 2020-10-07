@@ -1,0 +1,17 @@
+$primary_color:#FF5733; /* Esta es una variable en sass */
+$font_size: 18px;
+
+body{
+    font-size: $font_size;
+
+    h2{
+        color: $primary_color;
+    }
+
+    .my-div{
+        background-color: $primary_color;
+    }
+}
+
+
+
