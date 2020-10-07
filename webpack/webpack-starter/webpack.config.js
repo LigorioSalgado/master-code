@@ -14,6 +14,14 @@ module.exports = {
                 //test ---> que tengo que buscar
                 //use ----> de lo que encontre que loader voy a aplicar
             },
+            {
+                test: /\.js$/, //Va buscar todos los archivos js en mi proyecto
+                exclude: /node_modules/, //Le digo que no busque ne la carpeta de node_modules
+                use:{
+                    loader: "babel-loader"
+                }
+
+            }
         ]
     },
     plugins: [
