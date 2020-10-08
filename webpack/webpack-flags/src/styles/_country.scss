@@ -1,0 +1,11 @@
+/* _ significa que es una parte un pedazo o una sub secciond e algo mas grande esto es solo una buena practica*/
+
+.country{
+    @include size-default; //@include sirve para mandart a llamar un mixin
+    justify-content: center;
+
+    h2{
+        font-size: 60px;
+        font-weight: bold;
+    }
+}

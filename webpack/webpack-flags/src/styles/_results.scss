@@ -1,0 +1,14 @@
+.results{
+    @include size-default;
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+     font-size: 40px;
+    }
+
+    span{
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,31 @@
+@import "mixins";
+@import "_country"; //@import trae estilos de otros archivos y siempre buscas archivos .scss
+@import "_flags";
+@import "_results";
+
+$bg_color: #fbecc2;
+$font_color: #000000;
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: $font_color;
+}
+
+main{
+    box-sizing: border-box;
+    padding: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg_color;
+}
+
+
+
+
+
+
+
