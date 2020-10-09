@@ -21,7 +21,7 @@ class Game{
     choiceCountries(){
         //regresar los tres paies que van a estar en el juego
         for(var i=0; i < 3; i++){ // va a generar mis tres paises aleatorios
-            const pais = this.oneCountry
+            const pais = this.oneCountry //aca estoy mandando a llamar a mi getter
             this.selectedCountries.push(pais)
         }
         return this.selectedCountries;
@@ -31,6 +31,15 @@ class Game{
         //este me va a devolver el pais correcto o el ganador
         const random  = this.generateRandomNumber(this.selectedCountries.length)
         return this.selectedCountries[random]
+    }
+
+    buildFlag(info) {
+        //info  es la informacion del pais
+
+        const img = document.createElement('img');
+        img.setAttribute('src',info.flag)
+        img.setAttribute('id',info.name)
+        return img;
     }
 
     start(){
@@ -47,6 +56,13 @@ class Game{
         poblacion.innerHTML = "";
         capital.innerHTML = "";
         textoPais.innerHTML = this.winner.translations.es;
+
+        this.selectedCountries.forEach(country =>{
+            const flag = this.buildFlag(country)
+            banderas.appendChild(flag)
+        })
+
+
 
     }
 
