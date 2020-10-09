@@ -5,6 +5,8 @@ class Game{
         this.isOk = false; //va a validar si el resultado es correcto o no
         this.selectedCountries = [];
         this.winner = null;
+        this.rounds = 3
+        this.points = 0
     }
 
     generateRandomNumber(length){ //getters 
@@ -59,7 +61,7 @@ class Game{
         textoPais.innerHTML = this.winner.translations.es;
         
         const clickFlag = (event) =>{
-            console.log(this)
+            //scope es diferente entre un arrow function y un function normal
             if(this.winner.name === event.target.id){
                 //aqui el usuario dio click a la bandera ganadora
                 respuesta.innerHTML = "¡Correcto!"
