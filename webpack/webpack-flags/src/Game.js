@@ -33,12 +33,13 @@ class Game{
         return this.selectedCountries[random]
     }
 
-    buildFlag(info) {
+    buildFlag(info,cb) {
         //info  es la informacion del pais
-
+        //cb  es un callback el cual me va ayudar a ejectar el listener en las imagenes
         const img = document.createElement('img');
         img.setAttribute('src',info.flag)
         img.setAttribute('id',info.name)
+        img.addEventListener('click',cb)
         return img;
     }
 
@@ -56,9 +57,23 @@ class Game{
         poblacion.innerHTML = "";
         capital.innerHTML = "";
         textoPais.innerHTML = this.winner.translations.es;
+        
+        const clickFlag = (event) =>{
+            console.log(this)
+            if(this.winner.name === event.target.id){
+                //aqui el usuario dio click a la bandera ganadora
+                respuesta.innerHTML = "¡Correcto!"
+                poblacion.innerHTML = "Poblacion: "+this.winner.population
+                capital.innerHTML = "Capital: "+this.winner.capital
+
+            }else{
+                respuesta.innerHTML = "¡Incorrecto!"
+            }
+
+        }
 
         this.selectedCountries.forEach(country =>{
-            const flag = this.buildFlag(country)
+            const flag = this.buildFlag(country,clickFlag)
             banderas.appendChild(flag)
         })
 
