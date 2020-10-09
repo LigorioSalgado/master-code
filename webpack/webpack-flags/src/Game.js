@@ -4,6 +4,7 @@ class Game{
         this.countries = countries;
         this.isOk = false; //va a validar si el resultado es correcto o no
         this.selectedCountries = [];
+        this.winner = null;
     }
 
     generateRandomNumber(length){ //getters 
@@ -11,7 +12,7 @@ class Game{
         return Math.floor(Math.random() * length)
     }
 
-    oneCountry(){ // getter
+    get oneCountry(){ // getter
         // este va a devolver un pais 
         const random  = this.generateRandomNumber(this.countries.length)
         return this.countries[random]
@@ -20,13 +21,13 @@ class Game{
     choiceCountries(){
         //regresar los tres paies que van a estar en el juego
         for(var i=0; i < 3; i++){ // va a generar mis tres paises aleatorios
-            const pais = this.oneCountry()
+            const pais = this.oneCountry
             this.selectedCountries.push(pais)
         }
         return this.selectedCountries;
     }
 
-    choiceWinner(){
+    get choiceWinner(){
         //este me va a devolver el pais correcto o el ganador
         const random  = this.generateRandomNumber(this.selectedCountries.length)
         return this.selectedCountries[random]
@@ -34,6 +35,7 @@ class Game{
 
     start(){
         this.choiceCountries();
+        this.winner = this.choiceWinner;
         // se va encargar de carga todo el juego
         const banderas = document.querySelector('.flags')
         const respuesta = document.getElementById('answer');
@@ -44,7 +46,7 @@ class Game{
         respuesta.innerHTML = "";
         poblacion.innerHTML = "";
         capital.innerHTML = "";
-        textoPais.innerHTML = this.choiceWinner().translations.es;
+        textoPais.innerHTML = this.winner.translations.es;
 
     }
 
