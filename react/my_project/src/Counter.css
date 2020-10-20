@@ -1,0 +1,16 @@
+
+.counter-main h5{
+    font-size: 50px;
+    color: #61dafb;
+}
+
+.counter-buttons button{
+
+    border: solid 2px #61dafb;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 25px;
+    color: #61dafb;
+    margin-left: 25px;
+}
