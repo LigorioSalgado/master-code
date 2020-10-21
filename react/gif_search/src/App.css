@@ -1,0 +1,62 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+}
+
+.search-bar{
+  margin-bottom: 150px;
+  margin-top: 50px;
+}
+
+.search-input{
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px solid #61dafb;
+  border-radius: 10px 0px 0px 10px;
+  color: #61dafb;
+  padding: 15px 20px;
+}
+
+.search-input:focus{
+  outline: none;
+}
+
+
+.search-input::placeholder{
+  color: #61dafb;
+}
+
+.search-button{
+  background-color: transparent;
+  border: 2px solid #61dafb;
+  font-size: 24px;
+  padding: 15px 20px;
+  border-radius: 0px 10px 10px 0px;
+  color: #61dafb;
+}
+
+.search-button:hover{
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+.search-button:focus{
+  outline: none;
+}
+
+.grid-cards{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container{
+  width: 30%;
+  margin-bottom: 45px;
+}
