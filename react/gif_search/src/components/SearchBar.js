@@ -1,20 +1,13 @@
 import React from 'react';
-import axios from 'axios';
 
 class SearchBar extends React.Component{
 
     state = {
-        search: "",
-        results: []
+        search: ""    
     }
 
-    sendSearch = () => {
-        // aca vamos a hacer la llamada a la api
-        axios.get(`https://api.giphy.com/v1/gifs/search?limit=10&q=${this.state.search}&api_key=AiapZfxhKQG4fDNa89l7dzvE0tTE3Ou9`)
-            .then((results) => {
-                console.log(results.data)
-            })
-    }
+    // this.state para manejar el estado interno del componente
+    // this.props para obtener las propiedades que nos pasa el componente padre
 
     render(){
         return(
@@ -32,7 +25,8 @@ class SearchBar extends React.Component{
                 />
                 <button 
                     className="search-button"
-                    onClick={this.sendSearch}
+                    //this.sendSearch() asi lo ejecutaria en el padre
+                    onClick={() => this.props.emitSearch(this.state.search)}
                 >Buscar</button>
             </div>
 
