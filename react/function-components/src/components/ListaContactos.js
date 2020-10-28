@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function ListaContactos() {
-    const [contactos, setContactos] = useState([
-        {id: 1, name: 'Mario', lastName: 'Bros'},
-        {id: 2, name: 'Luigi', lastName: 'Bros'},
-    ]);    
+// Lista de contactos para funcionar necesita CONTACTOS --> prop lista
+function ListaContactos({lista}) {
 
     const renderConatacts = () => {
-        const h1DeContactos = contactos.map((contacto) => <h1>{contacto.name}</h1>)
+        const h1DeContactos = lista.map((contacto) => <h1>{contacto.name}</h1>)
         // [<h1>Mario</h1>, <h1>Luigi</h1>]
         return h1DeContactos;
     }
