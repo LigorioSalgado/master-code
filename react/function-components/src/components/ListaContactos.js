@@ -5,7 +5,7 @@ function ListaContactos({lista}) {
 
     const renderConatacts = () => {
         const h1DeContactos = lista.map((contacto) => <h1>{contacto.name}</h1>)
-        // [<h1>Mario</h1>, <h1>Luigi</h1>]
+        // [<h1>Mario</h1>, <h1>Luigi</h1>, <h1>Cesar</h1>]
         return h1DeContactos;
     }
 

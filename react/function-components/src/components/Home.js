@@ -11,6 +11,15 @@ function Home({saludo}) {
 
     const addContacto = (nombre, lastName) => {
         console.log('El contacto que vamos a agregar es: ' + nombre);
+        
+        // 1.- Crear el obejto contacto en
+        const objContacto = {
+            id: contactos.length + 1,
+            name: nombre,
+            lastName: lastName,
+        }
+        // 2.- Pushear el objeto contacto al estado (modificar el estado)
+        setContactos([...contactos, objContacto]);
     }
 
     return (
