@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 import Counter from './Counter';
 import ListaContactos from './ListaContactos';
 import FormularioContacto from './FormularioContacto';
 function Home({saludo}) {
-    
     const [contactos, setContactos] = useState([]);
 
     const addContacto = (nombre, lastName) => {
@@ -39,6 +39,7 @@ function Home({saludo}) {
             {/* <Counter /> */}
             <FormularioContacto agregarContacto={addContacto} />
             {contactos.length === 0 ? <h1>Cargando contactos...</h1> : <ListaContactos lista={contactos} />}
+            <Link to="/about">Vamonos al about</Link>
         </div>
     );
 }
