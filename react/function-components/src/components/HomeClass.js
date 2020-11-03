@@ -22,6 +22,7 @@ class Home extends React.Component {
         }, 5000);
     }
 
+    // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
         // Will mount ahora no se ocupa porque puede producir un cuello de botella
         // Antes de que exista algo en mi pagina

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function FormularioContacto({agregarContacto}) {
 
@@ -33,6 +34,10 @@ function FormularioContacto({agregarContacto}) {
             <button type="submit">Guardar</button>
         </form>
     )
+}
+
+FormularioContacto.propTypes = {
+    agregarContacto: PropTypes.func,
 }
 
 export default FormularioContacto;

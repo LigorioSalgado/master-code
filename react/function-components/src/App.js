@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 
 import {
@@ -20,7 +21,7 @@ function App() {
         {/* Adentro de <Switch /> simpre va <Route /> */}
         {/* Cuando entren al path "/" debe de pintar el componente <Home /> */}
         <Route exact path="/">
-          <Home />
+          <Home saludo={"6"} />
         </Route>
 
         <Route exact path="/author/:idAuthor">
