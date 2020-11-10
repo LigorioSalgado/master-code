@@ -15,6 +15,7 @@ function useForm(){
 
     const handleInputChange = (event) =>{
         const {name,value} = event.target;
+        console.log(name,value)
         setInputs({...inputs, [name]:value})
     }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import useForm from './hook/useForm';
 
 function App() {
   // Mala practica
@@ -10,13 +11,21 @@ function App() {
   // const [genero,setGenero] = useState('')
   // const [edad,setEdad] = useState('')
 
-
+  const {inputs,handleInputChange} = useForm();
 
   return (
     <div className="App">
       <form action="">
-        <input type="text" name="nombre" placeholder="tu nombre"/>
-        <input type="text" name="apellidos" placeholder="tus apellidos"/>
+        <input 
+          type="text" 
+          name="nombre"  
+          onChange={handleInputChange}
+          value={inputs.nombre}
+          placeholder="tu nombre"/>
+        <input type="text" name="apellidos" 
+          onChange={handleInputChange}
+          value={inputs.apellidos}
+        placeholder="tus apellidos"/>
         <input type="email" name="email" placeholder="tu email"/>
         <input type="password" name="password" placeholder="tu password"/>
         <select name="genero">
