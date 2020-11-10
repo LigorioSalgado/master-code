@@ -5,7 +5,7 @@
 // LOS HOOKS TINEN QUE SER UNIVERSALES
 import {useState}  from 'react';
 
-function useForm(){
+function useForm(callback){
     const [inputs,setInputs] = useState({}) // aqui vamos a estar guardando los valores de mis formularios
     // {
     //     "nombre":"jdlkfdjhlkasjlas",
@@ -13,7 +13,22 @@ function useForm(){
     //     ...
     // }
 
+//    const objeto = {
+//         "12-12-2020":{
+//             fsdfs
+           
+//         }
+//     }
+//     objeto["12-12-2020"]
+
+    const handleSubmit = (event) => {
+        //Handlesbmit va a ser ocupada en el submit de mis forms
+        event.preventDefault(); //Evita el refresh al enviar un form
+        callback(inputs);
+    }
+
     const handleInputChange = (event) =>{
+        console.log(event.target)
         const {name,value} = event.target;
         console.log(name,value)
         setInputs({...inputs, [name]:value})
@@ -21,7 +36,8 @@ function useForm(){
 
     return { // Los hooks no regresan jsx
         inputs,
-        handleInputChange
+        handleInputChange,
+        handleSubmit
     }
 
 }

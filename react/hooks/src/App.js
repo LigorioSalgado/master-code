@@ -11,11 +11,16 @@ function App() {
   // const [genero,setGenero] = useState('')
   // const [edad,setEdad] = useState('')
 
-  const {inputs,handleInputChange} = useForm();
+  const sendData = (data) =>{
+    //Aca mandamos la info a la API
+    console.log("Esta es mi data final ---->", data)
+  }
+
+  const {inputs,handleInputChange, handleSubmit} = useForm(sendData);
 
   return (
     <div className="App">
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <input 
           type="text" 
           name="nombre"  
@@ -26,14 +31,35 @@ function App() {
           onChange={handleInputChange}
           value={inputs.apellidos}
         placeholder="tus apellidos"/>
-        <input type="email" name="email" placeholder="tu email"/>
-        <input type="password" name="password" placeholder="tu password"/>
-        <select name="genero">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="tu email"
+          onChange={handleInputChange}
+          value={inputs.email}
+          />
+        <input 
+          type="password" 
+          name="password" 
+          onChange={handleInputChange}
+          value={inputs.password}
+          placeholder="tu password"
+        />
+        <select name="genero" 
+          onChange={handleInputChange}
+          value={inputs.genero}
+        >
           <option value="">Elige un genero</option>
-          <option value="H">Mujer</option>
-          <option value="M">Hombre</option>
+          <option value="M">Mujer</option>
+          <option value="H">Hombre</option>
         </select>
-        <input type="number" name="edad" id="" placeholder="tu edad"/>
+        <input 
+          type="number" 
+          name="edad" 
+          onChange={handleInputChange}
+          value={inputs.edad}
+          placeholder="tu edad"
+        />
         <button type="submit">Enviar</button>
       </form>
     </div>
