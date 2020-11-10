@@ -3,10 +3,16 @@
 // 2. SIEMPRE deben ser funciones !!!!!!!
 // 3. Tienes que utilizar hooks de react, y no deben estar loops, condiciones o funciones anidadas
 // LOS HOOKS TINEN QUE SER UNIVERSALES
-import {useState}  from 'react';
+import {useState, useEffect}  from 'react';
 
-function useForm(callback){
-    const [inputs,setInputs] = useState({}) // aqui vamos a estar guardando los valores de mis formularios
+function useForm(callback, defaults){
+    const [inputs,setInputs] = useState(defaults) // aqui vamos a estar guardando los valores de mis formularios
+    
+    useEffect(() =>{
+        //console.log("En useEffect de useForm",defaults)
+        //UseEffect escucha cambios en los props o en el estado
+        //setInputs({...defaults})
+    },[defaults])
     // {
     //     "nombre":"jdlkfdjhlkasjlas",
     //     "apellidos": "kjdfhsdkjfhjkds"
