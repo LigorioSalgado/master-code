@@ -9,23 +9,13 @@ function useForm(callback, defaults){
     const [inputs,setInputs] = useState(defaults) // aqui vamos a estar guardando los valores de mis formularios
     
     useEffect(() =>{
-        //console.log("En useEffect de useForm",defaults)
-        //UseEffect escucha cambios en los props o en el estado
-        //setInputs({...defaults})
+        console.log("Valor de datos", defaults)
+        // eslint-disable-next-line no-debugger
+    
+        setInputs({...defaults})
     },[defaults])
-    // {
-    //     "nombre":"jdlkfdjhlkasjlas",
-    //     "apellidos": "kjdfhsdkjfhjkds"
-    //     ...
-    // }
+   
 
-//    const objeto = {
-//         "12-12-2020":{
-//             fsdfs
-           
-//         }
-//     }
-//     objeto["12-12-2020"]
 
     const handleSubmit = (event) => {
         //Handlesbmit va a ser ocupada en el submit de mis forms
@@ -35,6 +25,8 @@ function useForm(callback, defaults){
 
     const handleInputChange = (event) =>{
         console.log(event.target)
+        //const name = event.targe.name
+        //const value = event.target.value
         const {name,value} = event.target;
         console.log(name,value)
         setInputs({...inputs, [name]:value})
