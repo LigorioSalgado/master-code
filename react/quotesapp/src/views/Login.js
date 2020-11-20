@@ -13,6 +13,7 @@ function Login(){
             .then((response) =>{
                 console.log(response.data)
                 const { token } =response.data
+                //const pato = response.data.token;
                 //session.storage
                 //local.storage
                 window.localStorage.setItem("token", token) // esto agrega algo nuevo al local storag
