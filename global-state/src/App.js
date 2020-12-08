@@ -1,4 +1,5 @@
 import React from 'react';
+import SongList from './SongList';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       
       <div className="izquierdo">
         <h2>Lado izquierdo</h2>
+        <SongList />
       </div>
 
       <div className="derecho">
