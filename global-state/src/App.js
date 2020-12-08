@@ -1,4 +1,5 @@
 import React from 'react';
+import SongDetail from './SongDetails';
 import SongList from './SongList';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
       <div className="derecho">
         <h2>Lado derecho</h2>
+        <SongDetail />
       </div>
 
     </div>

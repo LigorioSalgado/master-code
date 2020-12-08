@@ -15,7 +15,12 @@ function SongList() {
             {
                 list.length === 0 
                     ? <h1>Cargando...</h1> 
-                    : <h1>Lista con datos</h1>
+                    : list.map((song) => (
+                        <div className="row-song">
+                            <h4>{song.title}</h4>
+                            <h5>{song.artist}</h5>
+                        </div>
+                    ))
             }
         </section>
     )
