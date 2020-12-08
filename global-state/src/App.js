@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SongDetail from './SongDetails';
 import SongList from './SongList';
+import canciones from './listaCanciones.json';
 
 function App() {
+
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+      setTimeout(() => {
+          setList(canciones);
+      }, 2000)
+  }, [])
+
+
   return (
     <div className="App">
       
       <div className="izquierdo">
         <h2>Lado izquierdo</h2>
-        <SongList />
+        <SongList listaDeCanciones={list} />
       </div>
 
       <div className="derecho">
