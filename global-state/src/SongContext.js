@@ -16,10 +16,17 @@ function SongProvider(props) {
         }, 2000)
     }, [])
     
+    const deleteSong = (title) => {
+        const newList = list.filter((song) => song.title !== title)
+        setList(newList);
+        setSelectedSong({});
+    }
+
     const value = {
         list,
         selectedSong,
-        setSelectedSong
+        setSelectedSong,
+        deleteSong
     }
 
     return (
