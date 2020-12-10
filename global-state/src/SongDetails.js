@@ -16,6 +16,7 @@ function SongDetail() {
                     ? (<div>
                         <h1>{context.selectedSong.title}</h1>
                         <button onClick={clickEnBorrar}>Borrar</button>
+                        <h1>{process.env.REACT_APP_PRUEBA}</h1>
                         </div>)
                     : <h1>Selecciona una canción</h1>}
         </div>

@@ -4,6 +4,7 @@ import SongDetail from './SongDetails';
 import SongList from './SongList';
 
 function App() {
+  console.log('--->', process.env.REACT_APP_IS_PRODUCTION);
 
   return (
     <div className="App">
