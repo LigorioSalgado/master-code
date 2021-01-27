@@ -5,7 +5,7 @@ function Search({ value, onChange, titulo }) {
       <div>
         <label htmlFor="search">{titulo}</label>
         <input
-          data-testid="search"
+          data-testid="idTestSearch"
           type="text"
           value={value}
           onChange={onChange}
