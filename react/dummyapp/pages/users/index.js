@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Home.module.scss'
 import axios from 'axios';
 
 

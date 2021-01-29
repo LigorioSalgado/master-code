@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Home.module.scss'
 
 export async function getServerSideProps(context){
     const  { user } = context.query;
@@ -21,7 +21,7 @@ export async function getServerSideProps(context){
 export default function User({user}){
     const router  =  useRouter();
     const { user: userID } = router.query;
-    
+
     return(
         <div className = {styles.container}>
             <h2>Perfil</h2>
