@@ -3,9 +3,16 @@ import styles from '../../styles/Home.module.css'
 import axios from 'axios';
 
 
-export async function getStaticProps() {
-    // aqui puedeo hacer llamdas a API y pasar el resltado como props
+const wait = () => new Promise((resolve) =>{
+ setTimeout(resolve,3000)
+})
 
+export async function getStaticProps() {
+    // aqui puedeo hacer llamdas a API y pasar el resultados como props
+    // Cuando: BuildTime ---> cuando hace build el proyecto ------ 
+    // cuando corro npm run build o se vuelve a cargar proyecto(hago un cambio en el codigo)
+    // Que: Esto lo utilizo cuando se que los datos no cambian muy seguido
+    // Caso especifico: CMS ---> Content Managment System
     // axios.get('https://dummyapi.io/data/api/post?limit=10',{
     //     headers:{
     //     'app-id': '6011f27d538b828b65127ff9'
@@ -14,6 +21,8 @@ export async function getStaticProps() {
     // .catch(error => error );
 
     // async / await --> otra forma de resolver promesas
+
+    await wait();
 
     const response = await axios.get('https://dummyapi.io/data/api/post?limit=10',{
         headers:{
