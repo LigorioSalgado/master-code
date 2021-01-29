@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
     // async / await --> otra forma de resolver promesas
 
-    await wait();
+   // await wait();
 
     const response = await axios.get('https://dummyapi.io/data/api/post?limit=10',{
         headers:{

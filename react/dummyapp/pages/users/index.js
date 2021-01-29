@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../../styles/Home.module.css'
 import axios from 'axios';
 
@@ -11,7 +12,7 @@ export async function getServerSideProps(){
     // aqui puedo hacer llamdas a API
     //Cuando: Cada vez que se hace una peticion al servidor o cad vez que pido la ruta
     // Que: cuando sabemos que los datos cambian muy seguido
-    await wait();
+    // await wait();
 
     const response = await axios.get('https://dummyapi.io/data/api/user?limit=10',{
         headers:{
@@ -36,7 +37,13 @@ export default function Users(props){
             </Head>
             <h2>En Users</h2>
             {
-                props.users.data.map(user => <li>{user.firstName}{' '}{user.lastName} </li>)
+                props.users.data.map(user => 
+                <Link href={`/users/${user.id}`}>
+                    <a>
+                    {user.firstName}{' '}{user.lastName} 
+                    </a>
+                </Link>
+                )
             }
         </div>
     )
