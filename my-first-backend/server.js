@@ -36,6 +36,26 @@ app.get('/api/pets/:petId', (req, res) => {
     }
 });
 
+// Query
+// Query 'URL/api/pets?color=blanco&patas=4'
+app.get('/api/pets', (req, res) => {
+    console.log(req.query);
+    const petsArray = [
+        {
+            id: 1,
+            name: 'Firulais'
+        },
+        {
+            id: 2,
+            name: 'Moly'
+        },
+        {
+            id: 3,
+            name: 'Kiara'
+        }
+    ];
+    res.send(petsArray);
+});
 
 // Levanta el servidor en un puerto y recibe un callback.
 app.listen(3000, () => {
