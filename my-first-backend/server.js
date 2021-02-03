@@ -12,7 +12,7 @@ const app = express();
 // response: Lo utilizo para responder la petición 
 app.get('/', (request, response) => {
     console.log('Entro a mi GET');
-    response.send('Entraste al HOME 🚗')
+    response.send('Entraste al HOME 🚗');
 });
 
 app.get('/api/saludo', (req, res) => {
@@ -27,9 +27,13 @@ app.get('/api/saludo', (req, res) => {
 // Params 'URL/api/pets/99'
 app.get('/api/pets/:petId', (req, res) => {
     console.log(req.params);
-    const idPet = req.params.petId;
-    const mensaje = { id: `El id que buscas es: ${idPet}` }
-    res.send(mensaje);
+    const idPet = parseInt(req.params.petId);
+    if (idPet > 99) {
+        res.status(404).send({ mensaje: 'El id de la mascota no existe' });
+    } else {
+        const mensaje = { id: `El id que buscas es: ${idPet}` }
+        res.send(mensaje);
+    }
 });
 
 
@@ -37,3 +41,4 @@ app.get('/api/pets/:petId', (req, res) => {
 app.listen(3000, () => {
     console.log('Server ON');
 });
+
