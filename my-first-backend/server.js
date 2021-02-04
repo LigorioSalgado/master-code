@@ -6,6 +6,11 @@ const express = require('express');
 // Crea una instancia de express y la llama 'app'
 const app = express();
 
+// Configurar express para que pueda recibir BODY
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+
+
 // Crear nuestro primer enpoint (GET) '/'
 // get() params --> 'URI',callback
 // request: Todo lo que el usuario me manda
@@ -55,6 +60,20 @@ app.get('/api/pets', (req, res) => {
         }
     ];
     res.send(petsArray);
+});
+
+
+//POST se comporta igual que los otros metodos
+// EL POST TIENE LA HABILIDAD DE RECIBIR BODY
+app.post('/api/pets', (req, res) => {
+    // Obtener el body de la petición
+    console.log(req.body);
+    const newPet = {
+        id: 3,
+        name: 'Snoopy',
+        age: 5
+    }
+    res.status(201).send(newPet);
 });
 
 // Levanta el servidor en un puerto y recibe un callback.
