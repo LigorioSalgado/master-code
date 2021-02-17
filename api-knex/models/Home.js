@@ -16,9 +16,23 @@ const create = (bodyHome) => {
 
 const findAll = () => {
     // Obtiene todos los registros de la tabla HOMES
+    // select title, house_id from 'homes';
+    return knex
+        .select(['title', 'house_id', 'address', 'guests', 'description', 'created_at'])
+        .from('homes')
+
+}
+
+const findOne = (houseId) => {
+    // select tile, house_id, ..., from 'homes' where house_id=id
+    return knex
+        .select(['title', 'house_id', 'address', 'guests', 'description', 'created_at'])
+        .from('homes')
+        .where({ house_id: houseId });
 }
 
 module.exports = {
     create,
     findAll,
+    findOne,
 };
