@@ -2,62 +2,12 @@
 
 // Conectarme a la base de datos
 const knex = require('../config');
+const createModelKnex = require('../utils/createModelUtil');
 
-// select title, house_id from 'homes';
+const TABLE = 'homes';
+const RETURNING_DATA = ['title', 'house_id', 'address', 'guests', 'description', 'created_at', 'active'];
+const TABLE_ID = 'house_id';
 
-const create = (bodyHome) => {
-    // Crear un registro en la tabla HOMES.
-    return knex
-        .insert(bodyHome)
-        .returning(['title', 'house_id', 'address', 'guests', 'description', 'created_at'])
-        .into('homes')
-};
+const HomeModel = createModelKnex(knex, TABLE, RETURNING_DATA, TABLE_ID);
 
-const findAll = () => {
-    // Obtiene todos los registros de la tabla HOMES
-    // select title, house_id from 'homes';
-    return knex
-        .select(['title', 'house_id', 'address', 'guests', 'description', 'created_at', 'active'])
-        .from('homes')
-
-}
-
-const findOne = (houseId) => {
-    // select tile, house_id, ..., from 'homes' where house_id=id
-    return knex
-        .select(['title', 'house_id', 'address', 'guests', 'description', 'created_at'])
-        .from('homes')
-        .where({ house_id: houseId });
-}
-
-const update = (id, bodyToUpdate) => {
-    
-    return knex
-        .update(bodyToUpdate)
-        .from('homes')
-        .where({ house_id: id })
-        .returning(['title', 'house_id', 'address', 'guests', 'description', 'created_at'])
-}
-
-const destroy = (id) => {
-    return knex
-        .del()
-        .from('homes')
-        .where({ house_id: id })
-}
-
-const delit = (id) => {       
-    return knex
-        .update({ active: false })
-        .from('homes')
-        .where({ house_id: id })
-}
-
-module.exports = {
-    create,
-    findAll,
-    findOne,
-    update,
-    destroy,
-    delit,
-};
+module.exports = HomeModel;
