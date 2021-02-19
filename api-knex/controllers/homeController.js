@@ -23,7 +23,7 @@ const findAllHomes = (req, res) => {
 }
 
 const findOneHome = (req, res) => {
-    ModelHome.findOne(req.params.idHome)
+    ModelHome.findOneWithUser(req.params.idHome)
         .then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
