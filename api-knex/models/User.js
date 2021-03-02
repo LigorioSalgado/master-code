@@ -13,7 +13,9 @@ const RETURNING_DATA = [
     'phone',
     'active',
     'description',
-    'created_at'
+    'created_at',
+    'rol',
+    'password'
   ];
 const TABLE_ID = 'id_user';
 
