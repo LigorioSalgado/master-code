@@ -34,7 +34,7 @@ const findAllUsers = (req, res) => {
 }
 
 const findOneUser = (req, res) => {
-    UserModel.findOne(req.params.idUser)
+    UserModel.findOne(req.params.iduser)
         .then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
