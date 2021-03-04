@@ -18,9 +18,14 @@ const createUser = async(req, res) => {
 
 const login = async(req, res) =>{
  //verificar el usuario, verificar el password,  generar jwt
- const {user} = await authenticate(req.body).catch((err) => res.status(400).send(err))
- const token = generateJWT(user)
- return res.status(200).send({token});
+ try{
+    const {user} = await authenticate(req.body)
+    const token = generateJWT(user)
+    return res.status(200).send({token});
+ }catch(error){
+     return res.status(400).send({message: error.message})
+ }
+ 
 }
 
 const findAllUsers = (req, res) => {
