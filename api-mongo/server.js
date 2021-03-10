@@ -1,32 +1,31 @@
 const express =  require('express');
 //const {MongoClient} = require('mongodb');
-const { connect, get} = require('./db');
+const { connect} = require('./db');
+const {findAll, create} = require('./services/userServices')
 const app = express();
 const MONGO_URI = "mongodb+srv://edwin:prueba123@cluster0.vp6hz.mongodb.net/apimongo?retryWrites=true&w=majority"
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-
-app.get('/users',(req,res) => {
-    // regresar todos los users
-    const database = get().db('apimongo')
-    const collection = database.collection('users')
-    collection.find({}).toArray(function(error, results){
-            res.status(200).send(results)
-
-    })
+//promesas explicitas then y catch
+//promesas implicitas asycn y await
+app.get('/users',async(req,res) => {
+    try{
+        const users = await findAll();
+        return res.status(200).send(users)
+    }catch(error){
+        return res.status(400).send(error)
+    }
+   
 });
 
-app.post('/users', (req,res) => {
-    //crear un nuevo user
-    const database = get().db('apimongo')
-    const collection = database.collection('users')
-    collection.insertOne(req.body, function(err,result){
-        if(err) throw err
-        const [user] =  result.ops;
-        res.status(201).send(user)
-    })
-       
-
+app.post('/users', async(req,res) => {
+  try{
+    const user = await create(req.body)
+    return res.status(200).send(user)
+  }catch(error){
+    console.log(error)
+    return res.status(400).send(error)
+  }
 });
 
 // app.get('/users',(req,res) => {

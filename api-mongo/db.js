@@ -14,9 +14,10 @@ exports.connect = function(url, done){
     // url es la url de conexion
     // done --> done es un callback que va ejecutar algo si todo sale bien
     if(state.db) return done(); // si ya hay una conexion activa hacemos algo
-    MongoClient.connect(url, function(err, db){
+    MongoClient.connect(url, function(err, client){
+        // client es un objeto con los datos dela conexion
         if(err) return done(err) // si algo salio mal ejecutamos algo y mostramos el error
-        state.db = db; // guardo el estado de la conexion en el state
+        state.db = client; // guardo el estado de la conexion en el state
         done(); // ejecuto algo
     })
 
