@@ -1,12 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 const Users = require('./models/Users');
+const storage = require('./utils/storage');
 const app = express();
-//const MONGO_URI = "mongodb+srv://edwin:prueba123@cluster0.vp6hz.mongodb.net/apimongo?retryWrites=true&w=majority"
-const MONGO_URI = "mongodb://db:27017/apimongo" // aqui me estoy conectando desde el contenedor de mongo
+const MONGO_URI = "mongodb+srv://edwin:prueba123@cluster0.vp6hz.mongodb.net/apimongo?retryWrites=true&w=majority"
+//const MONGO_URI = `mongodb://db:27017/${process.env.MONGO_NAME}` // aqui me estoy conectando desde el contenedor de mongo
+
+const mult = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 5 * 1024 * 1024  // limite de 5 mb
+    }
+})
 
 app.use(express.urlencoded({extended:true}))
-app.use(express.json());
+app.use(express.json())
 
 // esta es la conexion a mongo
 mongoose.connect(MONGO_URI,{
@@ -30,12 +39,16 @@ app.get('/users', (req,res) => {
     })
 })
 
-app.post('/users', (req, res) => {
+app.post('/users',mult.single('photo') ,async(req, res) => {
+    if(req.file){ // aqui viene el archivo con todos sus datos que nos manda multer
+        const url = await storage(req.file); // aqui subo mi archivo a firbase
+        req.body.photo = url // voy a guardar la url de la imagen en BD
+    }
     Users.create(req.body).then((user) =>{
         res.status(201).send(user)
     }).catch((error) => {
         res.status(400).send(error)
-    })
+})
 
 })
 // app.post('/users', async(req,res)=>{ 
