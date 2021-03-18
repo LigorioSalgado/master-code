@@ -14,7 +14,7 @@ module.exports = (file) =>{
     return new Promise((resolve,reject) => {
         if(!file) reject("No hay ningun arhivo");
 
-        const newFilename = `${file.orignalname}_${Date.now()}`; // esto va a renombra el archivo
+        const newFilename = `${file.originalname}_${Date.now()}`; // esto va a renombra el archivo
 
         const fileUpload  =  bucket.file(newFilename); // voy a crear un nuevo archivo
 
@@ -34,8 +34,9 @@ module.exports = (file) =>{
 
     
         blobStream.on('finish',() =>{
-            const url = `https://storage.googleapis.com/${bucket.name}/${fileUpload.name}`
+            const url = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${fileUpload.name}?alt=media`
             resolve(url)
+
         }) // si todo sale bien regresame la url de mi archivo
 
         blobStream.end(file.buffer); // aqui empiezo la transmision de datos del backend al bucket
