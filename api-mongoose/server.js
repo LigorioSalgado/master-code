@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
-const Users = require('./models/Users');
+const UserController = require('./controllers/UserController');
 const manageFiles = require('./middlewares/manageFiles');
 const app = express();
 const MONGO_URI = "mongodb+srv://edwin:prueba123@cluster0.vp6hz.mongodb.net/apimongo?retryWrites=true&w=majority"
@@ -45,24 +45,16 @@ db.once('open', function(){ // esto se va a ejecutar una vez y as vez solo cuand
     console.log('Connected to database!!')
 })
 
-app.get('/users', (req,res) => {
-    Users.find({}).then((result) =>{
-        res.status(200).send(result)
-    })
-})
+app.get('/users',UserController.fetch)
 
-app.post('/users',[mult.single('photo'),manageFiles] ,async(req, res) => {
-    // if(req.file){ // aqui viene el archivo con todos sus datos que nos manda multer
-    //     const url = await storage(req.file); // aqui subo mi archivo a firbase
-    //     req.body.photo = url // voy a guardar la url de la imagen en BD
-    // } esto es movio al middleware de mangeFiles
-    Users.create(req.body).then((user) =>{
-        res.status(201).send(user)
-    }).catch((error) => {
-        res.status(400).send(error)
-})
+app.post('/users',[mult.single('photo'),manageFiles], UserController.create)
 
-})
+app.get('/users/:id', UserController.findOne)
+
+app.patch('/users/:id',[mult.single('photo'),manageFiles], UserController.update)
+
+app.delete('/users/:id', UserController.remove)
+
 // app.post('/users', async(req,res)=>{ 
 //     try{
 //      const user = await Users.create(req.body) 
