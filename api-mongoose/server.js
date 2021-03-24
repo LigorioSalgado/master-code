@@ -30,11 +30,14 @@ app.use(express.json())
 app.use('/uploads',express.static('uploads'))
 
 // esta es la conexion a mongo
-mongoose.connect(MONGO_URI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-}) // inicia la conexion
+if(process.env.NODE_ENV !== 'test'){
+    mongoose.connect(MONGO_URI,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+    }) // inicia la conexion
+}
+
 const db = mongoose.connection // aqui esta guardada el status de la conexion
 
 db.on('error',function(err){ // se va a ejecutar varia veces si encuentra un error en la conexion
@@ -67,3 +70,5 @@ app.delete('/users/:id', UserController.remove)
 app.listen(3000,() =>{
     console.log("Server ready 🚀!!!")
 })
+
+module.exports = app;

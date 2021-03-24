@@ -6,7 +6,8 @@ const create = async(req,res) =>{
         const user = await UserService.createUser(req.body);
         return res.status(201).send(user);
     }catch(error){
-        return res.status(400).send(error);
+        
+       return res.status(400).send(error);
     }
 }
 
