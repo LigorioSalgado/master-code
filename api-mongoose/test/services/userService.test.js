@@ -49,7 +49,7 @@ describe('User services', () =>{
 
         const users =  await userService.findUsers();
 
-        expect(users).toHaveLength(2)
+        expect(users).toHaveLength(0)
         expect(users[0]).toHaveProperty('_id')
 
     })
