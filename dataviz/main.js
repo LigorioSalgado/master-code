@@ -285,7 +285,7 @@ d3.csv('AutosVendidosFeb2016.csv')
     const chartHeight = 600;
 
     data.sort((a,b) => a.quantity > b.quantity ? -1 : 1)
-    console.log(data);
+    // console.log(data);
 
     const margin = { top: 20, rigth: 20, bottom: 40, left: 45 };
 
@@ -301,6 +301,7 @@ d3.csv('AutosVendidosFeb2016.csv')
     const scalaX = d3.scaleBand()
       .rangeRound([0, width])
       .domain(data.map(d => d.name))
+      .paddingInner(0.1)
 
     // Axis --> Ayuda a definir los ejes
     const xAxis = d3.axisBottom(scalaX);
@@ -325,6 +326,40 @@ d3.csv('AutosVendidosFeb2016.csv')
       .attr('transform', 'translate(0,' + height + ')')
       .call(xAxis)
 
+    const rect = svg.selectAll('body')
+      .data(data)
+      .enter()
+        .append('rect')
+        .attr('x', (d) =>  scalaX(d.name))
+        .attr('width', scalaX.bandwidth()) // Ancho de la barra
+        .attr('y', (d) => scalaY(d.quantity))
+        .attr('height',  (d) => height - scalaY(d.quantity))
+        .attr('fill', 'steelblue')
+        // RESPUESTA ACTIVIDAD
+        .attr('id', (d) => d.name.replace(' ', '-'))
+
+    const tip = d3 // Creación del tip
+      .tip()
+      .attr('class', 'd3-tip')
+      .html((event, d) => {
+        return `${d.name}`
+      })
+
+    svg.call(tip); // Agrega mi objeto tip a el SVG
+
+    rect
+      .on('mouseover.tip', tip.show)
+      .on('mouseout.tip', tip.hide)
+      // RESPUESTA ACTIVIDAD
+      .on('mouseover', (e, d) => {
+        d3.select(`#${d.name}`.replace(' ', '-')).attr('fill', 'red')
+      })
+      .on('mouseout', (e, d) => {
+        d3.select(`#${d.name}`.replace(' ', '-')).attr('fill', 'steelblue')
+      })
+
+  // 10 min.
+  // Cuando pase el mouse pintar de rojo la barra que está seleccionada.
 
   }).catch((err) => {
     console.log(err);

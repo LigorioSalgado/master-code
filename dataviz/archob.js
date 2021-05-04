@@ -322,11 +322,11 @@ const scalaDeBanda = d3.scaleBand()
         .attr('class', 'y axis')
         .call(yAxis);
     
-      const rect = svg.selectAll('.bar')
+      const rect = svg.selectAll('body')
         .data(data)
         .enter()
           .append('rect')
-          .attr('class', 'bar')
+
           .attr('x', function (d) { return x(d.name); })
           .attr('width', x.bandwidth()) // Ancho de la barra
           .attr('y', function (d) { return y(d.quantity); })
